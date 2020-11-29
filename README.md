@@ -31,7 +31,10 @@ Nmap -Pn --script vuln 192.168.1.105
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Nmap2.PNG width=500></kbd>
 ```
 With Apache Httpd open and Webdav showing up on our scans, it was clear the server would be accessible via a browser.
-Navigating to ```192.168.1.105``` allows us to browse through the server folders where there are multiple reference to a "secret_folder" directory. There is also a list of employee names (good source for user names) as well as roles and responsibilities. All very useful in planning our attack.
+Navigating to 192.168.1.105 allows us to browse through the server folders. 
+There are multiple references to a "secret_folder" directory. 
+There is also a list of employee names (good source for user names) as well as roles and responsibilities. 
+All very useful in planning our attack.
 ```
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http1.PNG width=500></kbd>
 ```
@@ -47,5 +50,6 @@ Hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 h
 
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http3.png></kbd>
 
-
+```
 ✨✨ SUCCESS!! ✨✨
+```
