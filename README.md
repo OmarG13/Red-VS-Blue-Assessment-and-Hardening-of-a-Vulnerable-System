@@ -37,17 +37,14 @@ Navigating to ```192.168.1.105``` allows us to browse through the server folders
 
 Navigating to the secret_folder directory requires us to use the user name and password for Ashton.
 
-![HTTP2](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http2.PNG)
-
+![HTTP2](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http2.png)
 Cracking Ashton's password is attempted using Hydra.
 ```
 Hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 http-get /company_folders/sercret_folder
 ```
-![Hydra](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Hydra.PNG)
+![Hydra](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Hydra.png)
 
-
-
-![HTTP3](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http3.PNG)
+![HTTP3](https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http3.png)
 
 
 ✨✨ SUCCESS!! ✨✨
