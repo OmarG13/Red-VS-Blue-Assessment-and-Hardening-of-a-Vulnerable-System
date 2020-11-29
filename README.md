@@ -216,7 +216,7 @@ _However, many of these recommendations are also highly recommended on just abou
 - Strong password policy and lockouts – configure pluggable authentication module (PAM) effectively.
   - Enforce a minimum of 8 characters with different types of characters, as well as password changes every 90 days.
 - Use public/private keys for SSH.
-- **Do not have sensitive data on externally accessible servers.**
+- **Do not have sensitive data on externally accessible servers.** 
 - For privileged accounts use MFA, captcha or unique login URLs
 - Disable webdav. There are alternatives that are more secure.
 - Implement HTTPS.
