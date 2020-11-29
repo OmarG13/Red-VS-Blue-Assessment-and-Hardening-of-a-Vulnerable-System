@@ -51,5 +51,7 @@ Hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 h
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http3.png></kbd>
 
 ```
-✨✨ SUCCESS!! ✨✨
+✨✨ *SUCCESS!!*
+
+✨✨
 ```
