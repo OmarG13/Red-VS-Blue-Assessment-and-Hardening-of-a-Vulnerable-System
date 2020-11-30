@@ -35,7 +35,7 @@ $ Nmap -Pn --script vuln 192.168.1.105
 
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Nmap2.PNG width=500></kbd>
 
-####  I
+####  Part I
 ```
 With Apache Httpd open and Webdav showing up on our scans, it was clear the server would be accessible via a browser.
 Navigating to 192.168.1.105 allows us to browse through the server folders. 
@@ -66,7 +66,7 @@ We can now access the secret_folder directory.
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http4.png></kbd>
 <kbd><img src=https://github.com/OmarG13/Red-VS-Blue-Assessment-and-Hardening-of-a-Vulnerable-System/blob/main/Images/Http5.png></kbd>
 
-####  II
+#### Part II
 ```
 There are very clear instructions on how to access Webdav, which we already know is of interest from out Nmap scan.
 Critically, there is also a hash along with the user account to be used.
@@ -79,7 +79,7 @@ However, we will first attempt to crack the hash and try using the result as Rya
 ```
 ✨✨ Ryan's credentials acquired ✨✨
 ```
-#### III
+#### Part III
 
 ```
 With Ryan's credentials, paths open up and there are multiple attack vectors we can pursue.
@@ -97,7 +97,7 @@ $ ssh ryan@192.168.1.105
 ```
 ✨✨ Success ✨✨
 ```
-#### IV
+#### Part IV
 
 ```
 The next method is to use an exploit and setup a reverse shell.
@@ -140,7 +140,7 @@ We now check Metasploit and see that a meterpreter session has been established.
 ```
 ✨✨ Success. We can then proceed to privilege escalation if it's required. ✨✨
 ```
-#### V
+#### Part V
 
 ```
 The final exploit is using Metasploit's web delivery script.
